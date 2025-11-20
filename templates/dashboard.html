@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Dashboard</h2>
+
+<div class="row g-3">
+
+  <div class="col-md-4">
+    <div class="card p-3">
+      <h5>Total Steps</h5>
+      <h3>{{ total_steps }}</h3>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card p-3">
+      <h5>Total Calories</h5>
+      <h3>{{ total_cal }}</h3>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card p-3">
+      <h5>Average Sleep</h5>
+      <h3>{{ avg_sleep }} hrs</h3>
+    </div>
+  </div>
+
+</div>
+
+<div class="card mt-4 p-3">
+  <h5>Charts</h5>
+  <img src="{{ url_for('plot_png') }}" class="img-fluid rounded shadow">
+</div>
+<div class="card mt-4 p-3">
+  <h5>Entries</h5>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Steps</th>
+        <th>Calories</th>
+        <th>Sleep</th>
+        <th>Notes</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for r in records %}
+      <tr>
+        <td>{{ r['date'] }}</td>
+        <td>{{ r['steps'] }}</td>
+        <td>{{ r['calories'] }}</td>
+        <td>{{ r['sleep_hours'] }}</td>
+        <td>{{ r['notes'] }}</td>
+        <td>
+          <a href="{{ url_for('edit_entry', fid=r['id']) }}" class="btn btn-sm btn-primary">Edit</a>
+          <a href="{{ url_for('delete_entry', fid=r['id']) }}" class="btn btn-sm btn-danger" onclick="return confirm('Delete entry?')">Delete</a>
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="6" class="text-center">No entries yet</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+
+{% endblock %}

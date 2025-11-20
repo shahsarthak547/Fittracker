@@ -1,0 +1,68 @@
+body.site-background {
+    background-image: url('/static/images/premium_photo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+    color: #fff; 
+}
+
+body.site-background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);  
+    z-index: -1;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.85) !important; 
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    color: #000 !important; 
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 12px;
+}
+
+.btn-outline-secondary,
+.btn-outline-success {
+    background: rgba(255, 255, 255, 0.85) !important;
+    color: #000 !important;
+    border: 1px solid rgba(0, 0, 0, 0.4) !important;
+    font-weight: 600;
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-success:hover {
+    background: #fff !important;
+    color: #000 !important;
+    border-color: #000 !important;
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    backdrop-filter: blur(5px);
+}
+
+.navbar .nav-link,
+.navbar-brand {
+    color: #fff !important;
+}
+
+.table td,
+.table th {
+    color: #000 !important;
+    vertical-align: middle;
+}
+
+footer {
+    color: #fff;
+}
+
+.avatar-sm {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}

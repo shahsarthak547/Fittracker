@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8 text-center">
+    <h1 class="display-5">Welcome to FitTrack</h1>
+    <p class="lead">A simple fitness tracker built with Flask and SQLite.</p>
+    <a href="{{ url_for('register') }}" class="btn btn-primary me-2">Get Started</a>
+    <a href="{{ url_for('login') }}" class="btn btn-outline-primary">Login</a>
+  </div>
+</div>
+{% endblock %}
